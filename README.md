@@ -1,0 +1,1 @@
+# django-russian-fields
