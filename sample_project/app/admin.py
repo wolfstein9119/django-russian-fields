@@ -4,7 +4,7 @@ from .models import SampleModel
 
 class SampleModelAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'gender'
+        'id', 'gender', 'agency_type_esia'
     )
 
 

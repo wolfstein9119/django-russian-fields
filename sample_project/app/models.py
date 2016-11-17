@@ -1,9 +1,14 @@
 from django.db import models
-from russian_fields import GENDERField
+from russian_fields import (
+    GENDERField, AgencyTypeESIA
+)
 
 
 class SampleModel(models.Model):
     gender = GENDERField(
+        blank=True, null=True
+    )
+    agency_type_esia = AgencyTypeESIA(
         blank=True, null=True
     )
 

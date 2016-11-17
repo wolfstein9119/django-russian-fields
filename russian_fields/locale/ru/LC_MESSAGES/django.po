@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-17 21:17+0700\n"
+"POT-Creation-Date: 2016-11-17 21:39+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: agency_type_esia.py:7
+msgid "AgencyTypeESIA"
+msgstr "Тип ОГВ (ЕСИА)"
+
+#: agency_type_esia.py:19
+msgid "The federal executive government"
+msgstr "Федеральный орган исполнительной власти"
+
+#: agency_type_esia.py:20
+msgid "State off-budget fund"
+msgstr "Государственный внебюджетный фонд"
+
+#: agency_type_esia.py:21
+msgid "The territory executive government"
+msgstr "Орган исполнительной власти субъекта"
+
+#: agency_type_esia.py:22
+msgid "Local authority"
+msgstr "Орган местного самоуправления"
+
+#: agency_type_esia.py:23
+msgid "Government institution"
+msgstr "Государственное учреждение"
+
+#: agency_type_esia.py:24
+msgid "Municipal institution"
+msgstr "Муниципальное учреждение"
 
 #: gender.py:7
 msgid "GENDER"
@@ -34,8 +62,11 @@ msgstr "Женский"
 
 #: validators.py:6
 #, python-format
-msgid "Ensure this value has at %(limit_value)s characters (it has %(show_value)d)."
-msgstr "Убедитесь, что это значение содержит %(limit_value)s символов (сейчас %(show_value)d)."
+msgid ""
+"Ensure this value has at %(limit_value)s characters (it has %(show_value)d)."
+msgstr ""
+"Убедитесь, что это значение содержит %(limit_value)s символов (сейчас "
+"%(show_value)d)."
 
 #: validators.py:17
 msgid "Ensure this value has only digit characters."
