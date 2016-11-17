@@ -1,18 +1,17 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
 
 
 class GENDERField(models.CharField):
     description = _("GENDER")
     DEFAULT_MAX_LENGTH = DEFAULT_MIN_LENGTH = 1
-    DEFAULT_MEMBER_NAME = 'gender'
 
     GENDER_MALE = 'M'
     GENDER_FEMALE = 'F'
     GENDER_CHOICES = (
-        (GENDER_MALE, _("Male")),
-        (GENDER_MALE, _("Female")),
+        (GENDER_MALE, _('Male')),
+        (GENDER_FEMALE, _('Female')),
     )
 
     def __init__(self, *args, **kwargs):

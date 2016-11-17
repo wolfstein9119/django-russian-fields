@@ -1,2 +1,4 @@
 include LICENSE
 include README.md
+recursive-include russian_fields/locale *
+prune sample_project
