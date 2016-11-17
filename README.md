@@ -32,7 +32,7 @@ from russian_fields import AgencyTypeESIA
 
 class SampleModel(models.Model):
     ...
-    gender = AgencyTypeESIA(
+    agency_type_esia = AgencyTypeESIA(
         blank=True, null=True
     )
     ...
