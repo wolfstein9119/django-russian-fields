@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-17 21:39+0700\n"
+"POT-Creation-Date: 2016-11-17 21:51+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,27 +24,27 @@ msgstr ""
 msgid "AgencyTypeESIA"
 msgstr "Тип ОГВ (ЕСИА)"
 
-#: agency_type_esia.py:19
+#: agency_type_esia.py:18
 msgid "The federal executive government"
 msgstr "Федеральный орган исполнительной власти"
 
-#: agency_type_esia.py:20
+#: agency_type_esia.py:19
 msgid "State off-budget fund"
 msgstr "Государственный внебюджетный фонд"
 
-#: agency_type_esia.py:21
+#: agency_type_esia.py:20
 msgid "The territory executive government"
 msgstr "Орган исполнительной власти субъекта"
 
-#: agency_type_esia.py:22
+#: agency_type_esia.py:21
 msgid "Local authority"
 msgstr "Орган местного самоуправления"
 
-#: agency_type_esia.py:23
+#: agency_type_esia.py:22
 msgid "Government institution"
 msgstr "Государственное учреждение"
 
-#: agency_type_esia.py:24
+#: agency_type_esia.py:23
 msgid "Municipal institution"
 msgstr "Муниципальное учреждение"
 
@@ -59,6 +59,10 @@ msgstr "Мужской"
 #: gender.py:14
 msgid "Female"
 msgstr "Женский"
+
+#: territory_code.py:8
+msgid "Territory code"
+msgstr "Код субъекта"
 
 #: validators.py:6
 #, python-format

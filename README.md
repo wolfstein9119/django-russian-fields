@@ -37,3 +37,22 @@ class SampleModel(models.Model):
     )
     ...
 ```
+
+* TerritoryCodeField - код субъекта РФ.
+Наследуется от CharField. Поле включает в себя проверку на минимальную и максимальную длину (2 символа).
+Дополнительно встроена проверка на контроль содержимого - допускаются только цифры.
+
+Пример использования
+```python
+...
+from russian_fields import TerritoryCodeField
+...
+
+
+class SampleModel(models.Model):
+    ...
+    territory_code = TerritoryCodeField(
+        blank=True, null=True
+    )
+    ...
+```

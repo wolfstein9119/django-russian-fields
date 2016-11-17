@@ -1,6 +1,6 @@
 from django.db import models
 from russian_fields import (
-    GENDERField, AgencyTypeESIA
+    GENDERField, AgencyTypeESIA, TerritoryCodeField
 )
 
 
@@ -9,6 +9,9 @@ class SampleModel(models.Model):
         blank=True, null=True
     )
     agency_type_esia = AgencyTypeESIA(
+        blank=True, null=True
+    )
+    territory_code = TerritoryCodeField(
         blank=True, null=True
     )
 
