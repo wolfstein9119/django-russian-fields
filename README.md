@@ -56,3 +56,48 @@ class SampleModel(models.Model):
     )
     ...
 ```
+
+* **INNField** - ИНН.
+Поле имеет 3 режима работы (параметр mode): person (ИНН физ.лица), legal (ИНН юр.лица), general (общий ИНН, по умолчанию)
+Наследуется от CharField. Поле включает в себя проверку на минимальную и максимальную длину.
+Дополнительно встроена проверка на контроль содержимого - допускаются только цифры и введенный ИНН должен удовлетворять своему контрольному числу.
+Значение поля представляет собой объект класса INN(str).
+Объект класса INN(str) содержит следующие свойства:
+    * region_code - кода региона
+    * inspection_code - код инспекции
+    * record_number - номер записи
+    * control_number - контрольное число
+
+Пример использования
+```python
+...
+from russian_fields import INNField, INNPersonField, INNBusinessField
+...
+
+
+class Sample2Model(models.Model):
+    ...
+    inn = INNField(
+        mode='general',
+        blank=True, null=True
+    )
+    inn_person = INNPersonField(
+        blank=True, null=True
+    )
+    inn_business = INNBusinessField(
+        blank=True, null=True
+    )
+    ...
+
+s2m = Sample2Model.objects.get(id=some_id)
+print(
+    s2m.inn.region_code,
+    s2m.inn.inspection_code,
+    s2m.inn.record_number,
+    s2m.inn.control_number
+)
+```
+
+* **INNPersonField** - ИНН физ.лица (эквивалентен INNField(mode='person')).
+
+* **INNBusinessField** - ИНН юр.лица (эквивалентен INNField(mode='legal')).
