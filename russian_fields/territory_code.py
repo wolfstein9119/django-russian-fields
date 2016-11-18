@@ -4,6 +4,7 @@ from .validators import IsDigitValidator
 
 
 class TerritoryCodeField(models.CharField):
+    # код субъекта РФ
     description = 'Territory code'
     DEFAULT_MAX_LENGTH = DEFAULT_MIN_LENGTH = 2
 
