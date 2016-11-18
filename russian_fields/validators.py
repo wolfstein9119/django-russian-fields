@@ -22,3 +22,14 @@ class IsDigitValidator(BaseValidator):
 
     def compare(self, a, b):
         return not a.isdigit()
+
+
+class INNControlNumberValidation(BaseValidator):
+    message = _('Ensure this value is INN?')
+    code = 'control_number_inn'
+
+    def __init__(self, limit_value=None, message=None):
+        super(INNControlNumberValidation, self).__init__(limit_value, message)
+
+    def compare(self, a, b):
+        return not a.is_valid_control

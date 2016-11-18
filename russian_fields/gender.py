@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class GENDERField(models.CharField):
-    description = _("GENDER")
+    description = 'Gender'
     DEFAULT_MAX_LENGTH = DEFAULT_MIN_LENGTH = 1
 
     GENDER_MALE = 'M'

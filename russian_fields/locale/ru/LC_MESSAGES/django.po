@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-17 21:51+0700\n"
+"POT-Creation-Date: 2016-11-18 21:53+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
-
-#: agency_type_esia.py:7
-msgid "AgencyTypeESIA"
-msgstr "Тип ОГВ (ЕСИА)"
 
 #: agency_type_esia.py:18
 msgid "The federal executive government"
@@ -48,10 +44,6 @@ msgstr "Государственное учреждение"
 msgid "Municipal institution"
 msgstr "Муниципальное учреждение"
 
-#: gender.py:7
-msgid "GENDER"
-msgstr "Пол"
-
 #: gender.py:13
 msgid "Male"
 msgstr "Мужской"
@@ -59,10 +51,6 @@ msgstr "Мужской"
 #: gender.py:14
 msgid "Female"
 msgstr "Женский"
-
-#: territory_code.py:8
-msgid "Territory code"
-msgstr "Код субъекта"
 
 #: validators.py:6
 #, python-format
@@ -75,3 +63,7 @@ msgstr ""
 #: validators.py:17
 msgid "Ensure this value has only digit characters."
 msgstr "Убедитесь, что это значение состоит только из цифр."
+
+#: validators.py:28
+msgid "Ensure this value is INN?"
+msgstr "Вы уверены, что это правильный ИНН"

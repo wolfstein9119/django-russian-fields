@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class AgencyTypeESIA(models.CharField):
-    description = _("AgencyTypeESIA")
+    description = 'AgencyTypeESIA'
     DEFAULT_MAX_LENGTH = DEFAULT_MIN_LENGTH = 6
 
     FEDERAL_EXECUTIVE = '10.FED'

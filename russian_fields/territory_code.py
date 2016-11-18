@@ -1,11 +1,10 @@
 from django.db import models
 from django.core.validators import MinLengthValidator
-from django.utils.translation import ugettext_lazy as _
 from .validators import IsDigitValidator
 
 
 class TerritoryCodeField(models.CharField):
-    description = _("Territory code")
+    description = 'Territory code'
     DEFAULT_MAX_LENGTH = DEFAULT_MIN_LENGTH = 2
 
     def __init__(self, *args, **kwargs):
