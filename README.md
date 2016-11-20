@@ -180,3 +180,41 @@ print(
 * **OGRNBusinessField** - ОГРНИН (эквивалентен OGRNField(mode='business')).
 
 * **OGRNLegalField** - ИНН юр.лица (эквивалентен OGRNField(mode='legal')).
+
+* **OKOGUField** - код общероссийского классификатора органов гос.власти.
+Наследуется от CharField. Поле включает в себя проверку на минимальную и максимальную длину (7 символов).
+Дополнительно встроена проверка на контроль содержимого - допускаются только цифры.
+
+Пример использования
+```python
+...
+from russian_fields import OKOGUField
+...
+
+
+class Sample4Model(models.Model):
+    ...
+    okogu = OKOGUField(
+        blank=True, null=True
+    )
+    ...
+```
+
+* **OKOPFField** - код общероссийского классификатора организационной-правовых форм.
+Наследуется от CharField. Поле включает в себя проверку на минимальную и максимальную длину (5 символов).
+Дополнительно встроена проверка на контроль содержимого - допускаются только цифры.
+
+Пример использования
+```python
+...
+from russian_fields import OKOPFField
+...
+
+
+class Sample4Model(models.Model):
+    ...
+    okopf = OKOPFField(
+        blank=True, null=True
+    )
+    ...
+```
