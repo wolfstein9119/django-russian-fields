@@ -1,7 +1,7 @@
 from django.db import models
 from russian_fields import (
     GENDERField, AgencyTypeESIA, TerritoryCodeField,
-    INNField, INNPersonField, INNBusinessField
+    INNField, INNPersonField, INNBusinessField, KPPField
 )
 
 
@@ -32,6 +32,9 @@ class Sample2Model(models.Model):
         blank=True, null=True
     )
     inn_business = INNBusinessField(
+        blank=True, null=True
+    )
+    kpp = KPPField(
         blank=True, null=True
     )
 

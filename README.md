@@ -101,3 +101,33 @@ print(
 * **INNPersonField** - ИНН физ.лица (эквивалентен INNField(mode='person')).
 
 * **INNBusinessField** - ИНН юр.лица (эквивалентен INNField(mode='legal')).
+
+* **KPPField** - КПП.
+Наследуется от CharField. Поле включает в себя проверку на минимальную и максимальную длину.
+Значение поля представляет собой объект класса KPP(str).
+Объект класса KPP(str) содержит следующие свойства:
+    * inspection_code - код инспекции
+    * cause - причина постановка на учет
+    * record_number - номер записи
+
+Пример использования:
+```python
+...
+from russian_fields import KPPField
+...
+
+
+class Sample2Model(models.Model):
+    ...
+    kpp = KPPField(
+        blank=True, null=True
+    )
+    ...
+
+s2m = Sample2Model.objects.get(id=some_id)
+print(
+    s2m.kpp.inspection_code,
+    s2m.kpp.cause,
+    s2m.kpp.record_number
+)
+```

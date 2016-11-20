@@ -9,7 +9,9 @@ class SampleModelAdmin(admin.ModelAdmin):
 
 
 class Sample2ModelAdmin(admin.ModelAdmin):
-    list_display = ('id', 'inn', 'inn_person', 'inn_business')
+    list_display = (
+        'id', 'inn', 'inn_person', 'inn_business', 'kpp'
+    )
 
 
 admin.site.register(SampleModel, SampleModelAdmin)
