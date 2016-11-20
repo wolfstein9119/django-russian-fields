@@ -131,3 +131,52 @@ print(
     s2m.kpp.record_number
 )
 ```
+
+* **OGRNField** - ОГРН.
+Поле имеет 3 режима работы (параметр mode): business (ИП), legal (ИНН юр.лица), general (общий ОГРН, по умолчанию)
+Наследуется от CharField. Поле включает в себя проверку на минимальную и максимальную длину.
+Дополнительно встроена проверка на контроль содержимого - допускаются только цифры и введенный ОГРН должен удовлетворять своему контрольному числу.
+Значение поля представляет собой объект класса OGRN(str).
+Объект класса OGRN(str) содержит следующие свойства:
+    * feature - признак отнесения государственного регистрационного номера записи
+    * year - код инспекции
+    * region_code - порядковый номер субъекта РФ
+    * inspection_code - код налоговой инспекции
+    * record_number - номер записи, внесенной в государственный реестр в течение года
+    * control_number - контрольное число
+
+Пример использования
+```python
+...
+from russian_fields import OGRNField, OGRNBusinessField, OGRNLegalField
+...
+
+
+class Sample3Model(models.Model):
+    ...
+    ogrn = OGRNField(
+        mode='general',
+        blank=True, null=True
+    )
+    ogrn_legal = OGRNLegalField(
+        blank=True, null=True
+    )
+    ogrn_business = OGRNBusinessField(
+        blank=True, null=True
+    )
+    ...
+
+s3m = Sample3Model.objects.get(id=some_id)
+print(
+    s3m.ogrn.feature,
+    s3m.ogrn.year,
+    s3m.ogrn.region_code,
+    s3m.ogrn.inspection_code,
+    s3m.ogrn.record_number,
+    s3m.ogrn.control_number
+)
+```
+
+* **OGRNBusinessField** - ОГРНИН (эквивалентен OGRNField(mode='business')).
+
+* **OGRNLegalField** - ИНН юр.лица (эквивалентен OGRNField(mode='legal')).

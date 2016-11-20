@@ -1,7 +1,8 @@
 from django.db import models
 from russian_fields import (
     GENDERField, AgencyTypeESIA, TerritoryCodeField,
-    INNField, INNPersonField, INNBusinessField, KPPField
+    INNField, INNPersonField, INNBusinessField, KPPField,
+    OGRNField, OGRNBusinessField, OGRNLegalField
 )
 
 
@@ -44,3 +45,22 @@ class Sample2Model(models.Model):
     class Meta:
         verbose_name = 'Sample2Model'
         verbose_name_plural = 'Sample2Models'
+
+
+class Sample3Model(models.Model):
+    ogrn = OGRNField(
+        blank=True, null=True
+    )
+    ogrn_legal = OGRNLegalField(
+        blank=True, null=True
+    )
+    ogrn_business = OGRNBusinessField(
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name = 'Sample3Model'
+        verbose_name_plural = 'Sample3Models'

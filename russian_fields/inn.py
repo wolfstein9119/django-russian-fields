@@ -2,67 +2,9 @@ from django.db import models
 from django.core import checks
 from django.core.validators import MinLengthValidator
 from .validators import (
-    ProbablyLengthValidator, IsDigitValidator, INNControlNumberValidation
+    ProbablyLengthValidator, IsDigitValidator, ControlNumberValidation
 )
-
-
-class INNMeta(object):
-    PERSON_MODE = 'person'
-    LEGAL_MODE = 'legal'
-    GENERAL_MODE = 'general'
-
-    PERSON_INN_LENGTH = 12
-    LEGAL_INN_LENGTH = 10
-
-    available_length = (PERSON_INN_LENGTH, LEGAL_INN_LENGTH)
-    available_mode = (PERSON_MODE, LEGAL_MODE, GENERAL_MODE)
-
-    settings = {
-        PERSON_MODE: {
-            'max_length': PERSON_INN_LENGTH,
-            'min_length': PERSON_INN_LENGTH,
-            'record_number_range': {
-                'start_index': 4,
-                'end_index': 10
-            },
-            'control_number_range': {
-                'start_index': 10,
-                'end_index': 12
-            }
-        },
-        LEGAL_MODE: {
-            'max_length': LEGAL_INN_LENGTH,
-            'min_length': LEGAL_INN_LENGTH,
-            'record_number_range': {
-                'start_index': 4,
-                'end_index': 9
-            },
-            'control_number_range': {
-                'start_index': 9,
-                'end_index': 10
-            }
-        },
-        GENERAL_MODE: {
-            'max_length': PERSON_INN_LENGTH,
-            'min_length': LEGAL_INN_LENGTH,
-        }
-
-    }
-
-    @classmethod
-    def get_range(cls, mode, range_name):
-        assert mode in cls.settings
-        mode_settings = cls.settings[mode]
-
-        assert range_name in mode_settings
-        range_info = mode_settings[range_name]
-        return range_info['start_index'], range_info['end_index']
-
-    @classmethod
-    def get_length(cls, mode):
-        assert mode in cls.settings
-        mode_settings = cls.settings[mode]
-        return mode_settings['min_length'], mode_settings['max_length']
+from .meta import INNMeta
 
 
 class INN(str):
@@ -72,7 +14,7 @@ class INN(str):
             return INNMeta.PERSON_MODE
         elif l == INNMeta.LEGAL_INN_LENGTH:
             return INNMeta.LEGAL_MODE
-        raise ValueError('INN contains %s characters' % l)
+        return None
 
     @property
     def region_code(self):
@@ -84,7 +26,7 @@ class INN(str):
 
     @property
     def record_number(self):
-        start_index, end_index = INNMeta.get_range(self.detect_mode(), 'record_number_range')
+        start_index, end_index = INNMeta.get_range(self.detect_mode(), 'control_number_range')
         return self[start_index:end_index]
 
     @property
@@ -139,7 +81,7 @@ class INNField(models.CharField):
             MinLengthValidator(min_length),
             ProbablyLengthValidator(INNMeta.available_length),
             IsDigitValidator(),
-            INNControlNumberValidation()
+            ControlNumberValidation()
         ])
 
     def from_db_value(self, value, expression, connection, context):

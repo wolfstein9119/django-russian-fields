@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import SampleModel, Sample2Model
+from .models import (
+    SampleModel, Sample2Model, Sample3Model
+)
 
 
 class SampleModelAdmin(admin.ModelAdmin):
@@ -14,5 +16,12 @@ class Sample2ModelAdmin(admin.ModelAdmin):
     )
 
 
+class Sample3ModelAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'ogrn', 'ogrn_legal', 'ogrn_business'
+    )
+
+
 admin.site.register(SampleModel, SampleModelAdmin)
 admin.site.register(Sample2Model, Sample2ModelAdmin)
+admin.site.register(Sample3Model, Sample3ModelAdmin)
