@@ -4,7 +4,7 @@ from django.core.validators import MinLengthValidator
 from .validators import (
     ProbablyLengthValidator, IsDigitValidator, ControlNumberValidation
 )
-from .meta import INNMeta
+from .meta_info import INNMeta
 
 
 class INN(str):

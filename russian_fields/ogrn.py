@@ -4,7 +4,7 @@ from django.core import checks
 from .validators import (
     ProbablyLengthValidator, IsDigitValidator, ControlNumberValidation
 )
-from .meta import OGRNMeta
+from .meta_info import OGRNMeta
 
 
 class OGRN(str):
