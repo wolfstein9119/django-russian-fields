@@ -1,5 +1,15 @@
 # django-russian-fields
 
+## Установка
+После установки пакета необходимо добавить в INSTALLED_APPS
+```python
+INSTALLED_APPS = [                                  # Добавить 'russian-fields' в INSTALLED_APPS
+    # ...
+    'russian-fields',
+    # ...
+]
+```
+
 ## Описание
 Данная библиотека включает в себя описание и работу следующих полей:
 
