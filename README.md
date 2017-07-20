@@ -5,7 +5,7 @@
 ```python
 INSTALLED_APPS = [                                  # Добавить 'russian-fields' в INSTALLED_APPS
     # ...
-    'russian-fields',
+    'russian_fields',
     # ...
 ]
 ```
