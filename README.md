@@ -228,3 +228,34 @@ class Sample4Model(models.Model):
     )
     ...
 ```
+
+* **SNILSField** - СНИЛС. Наследуется от CharField.
+Поле включает в себя проверку на минимальную и максимальную длину (11 символов).
+Дополнительно встроена проверка на контроль содержимого - допускаются только цифры и введенный СНИЛС должен удовлетворять своему контрольному числу.
+Значение поля представляет собой объект класса SNILS(str).
+Объект класса SNILS(str) содержит следующие свойства:
+    * record_number - номер записи
+    * control_number - контрольное число
+    * representation - представление в виде "DDD-DDD-DDD DD"
+
+Пример использования
+```python
+...
+from russian_fields import SNILSField
+...
+
+
+class Sample5Model(models.Model):
+    ...
+    snils = SNILSField(
+        blank=True, null=True
+    )
+    ...
+
+s5m = Sample5Model.objects.get(id=some_id)
+print(
+    s5m.snils.record_number,
+    s5m.snils.control_number,
+    s5m.snils.representation
+)
+```
