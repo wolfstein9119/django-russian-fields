@@ -3,7 +3,8 @@ from russian_fields import (
     GENDERField, AgencyTypeESIA, TerritoryCodeField,
     INNField, INNPersonField, INNBusinessField, KPPField,
     OGRNField, OGRNBusinessField, OGRNLegalField,
-    OKOGUField, OKOPFField
+    OKOGUField, OKOPFField,
+    SNILSField,
 )
 
 
@@ -81,3 +82,16 @@ class Sample4Model(models.Model):
     class Meta:
         verbose_name = 'Sample4Model'
         verbose_name_plural = 'Sample4Models'
+
+
+class Sample5Model(models.Model):
+    snils = SNILSField(
+        blank=True, null=True
+    )
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name = 'Sample5Model'
+        verbose_name_plural = 'Sample5Models'
