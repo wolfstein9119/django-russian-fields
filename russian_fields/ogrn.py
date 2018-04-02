@@ -58,7 +58,7 @@ class OGRN(str):
 
     def _check_business(self):
         control_number, tested_number = self._get_control_operand()
-        return tested_number % 13 == control_number
+        return tested_number % 13 % 10 == control_number
 
     def _get_control_operand(self):
         control_number = int(self.control_number)
